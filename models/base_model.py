@@ -5,10 +5,10 @@
 """
 import uuid
 from datetime import datetime
-form models import storage
+from models import storage
 
 
-class BaseModel:
+class BaseModel():
     """class base model for airbnb"""
 
     def __init__(self, *args, **kwargs):
@@ -43,8 +43,3 @@ class BaseModel:
                 self.__class__.__name__,
                 self.id,
                 self.__dict__)
-
-
-if __name__ == "__main__":
-    a = BaseModel()
-    print(a.to_dict())
