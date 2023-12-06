@@ -5,6 +5,7 @@
 """
 import uuid
 from datetime import datetime
+form models import storage
 
 
 class BaseModel:
@@ -12,23 +13,24 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """init method to class BaseModel"""
-        for key in ("created_at", "updated_at"):
-            if key in kwargs:
-                kwargs[key] = datetime.strptime(
-                        kwargs[key],
-                        '%Y-%m-%dT%H:%M:%S.%f'
-                        )
-        self.id = kwargs.get("id", str(uuid.uuid4()))
-        self.created_at = kwargs.get("created_at", datetime.now().isoformat())
-        self.updated_at = kwargs.get("updated_at", datetime.now().isoformat())
-        for key, value in kwargs.items():
-            if key not in ("id", "created_at", "updated_at"):
+
+        if kwargs:
+            for key, value in kwargs.items():
+                if key == "__class__":
+                    continue
+                elif key in ["created_at", "updated_at"]:
+                    value = datetime.fromisoformat(value)
                 setattr(self, key, value)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now().isoformat()
+            self.updated_at = datetime.now().isoformat()
+            storage.new(self)
 
     def save(self):
         """ saves the updated time"""
         self.updated_at = datetime.now().isoformat()
-        return self.updated_at
+        storage.save()
 
     def to_dict(self):
         """format dict instance"""
