@@ -5,7 +5,7 @@
 """
 import uuid
 from datetime import datetime
-
+from models import storage
 
 class BaseModel:
     """class base model for airbnb"""
@@ -28,6 +28,10 @@ class BaseModel:
     def save(self):
         """ saves the updated time"""
         self.updated_at = datetime.now().isoformat()
+        if hasattr(storage, 'new'):
+            storage.new(self)
+        else:
+            storage.save()
         return self.updated_at
 
     def to_dict(self):
@@ -41,8 +45,3 @@ class BaseModel:
                 self.__class__.__name__,
                 self.id,
                 self.__dict__)
-
-
-if __name__ == "__main__":
-    a = BaseModel()
-    print(a.to_dict())
