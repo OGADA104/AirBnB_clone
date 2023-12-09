@@ -3,14 +3,13 @@
 import json
 import os
 from models.base_model import BaseModel
+from models.user import User
 
-
-class FileStorage(BaseModel):
+class FileStorage:
     """ file stogare class"""
     def __init__(self):
         """init method on file storage"""
         self.__file_path = 'file.json'
-        print("File path:", os.path.abspath(self.__file_path))
         self.__objects = dict()
 
     def all(self):
@@ -41,7 +40,12 @@ class FileStorage(BaseModel):
                     objects_dict = json.load(file)
                     for key, obj_dict in objects_dict.items():
                         class_name, obj_id = key.split('.')
-                        obj = BaseModel(**obj_dict)
+                        if class_name == "BaseModel":
+                            obj = BaseModel(**obj_dict)
+                        elif class_name == "User":
+                            obj = User(**obj_dict)
+                        else:
+                            continue
                         self.__objects[key] = obj
             except FileNotFoundError:
                 pass
