@@ -77,6 +77,24 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class name missing **")
 
+    def do_all(self, s):
+        """show all instances present or by class"""
+        if s:
+            if s in globals():
+                store = FileStorage()
+                store.reload()
+                objects = store.all()
+                print("building in progress...")
+
+            else:
+                print("** class doesn't exist **")
+        else:
+            store = FileStorage()
+            store.reload()
+            objects = store.all()
+            for obj in objects.items():
+                print(obj)
+
 
     def help_destroy(self):
         """help module to destroy"""
