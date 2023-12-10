@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Get a list of authors from Git commit history
-authors=$(git log --format='%aN' | sort -u)
-
-# Print the list of authors
-echo "List of Authors:" > AUTHORS
-echo "$authors" >> AUTHORS
-
