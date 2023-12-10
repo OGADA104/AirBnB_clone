@@ -10,6 +10,7 @@ from models.place import Place
 from models.review import Review
 from models.engine.file_storage import FileStorage
 
+
 class HBNBCommand(cmd.Cmd):
     """air bnb console class"""
     prompt = "(hbnb)"
@@ -26,7 +27,8 @@ class HBNBCommand(cmd.Cmd):
 
     def help_create(self):
         """help to create method"""
-        print("create an instance of a class \n \tUsage:\n\t\t create BaseModel")
+        print("create an instance of a class")
+        print("\tUsage:\n\t\t create BaseModel")
 
     def do_show(self, args):
         """show string rep of an instance"""
@@ -47,7 +49,7 @@ class HBNBCommand(cmd.Cmd):
                         else:
                             print("** no instance found **")
                     else:
-                        print("** instance id missing **")    
+                        print("** instance id missing **")
                 else:
                     print("** class doesn't exist **")
         else:
@@ -57,7 +59,6 @@ class HBNBCommand(cmd.Cmd):
         """get a representation of instances"""
         print("shows more info on instance id ")
         print("Usage:\n\tshow <class name> <instance id>")
-
 
     def do_destroy(self, args):
         """destroy an instance and update the json file"""
@@ -100,13 +101,10 @@ class HBNBCommand(cmd.Cmd):
             for obj in objects.items():
                 print(obj)
 
-
     def help_destroy(self):
         """help module to destroy"""
         print("deletes instance of a class")
         print("Usage: \n\tdestroy <class name> <instance id>")
-        
-
 
     def emptyLine(self):
         """do nothing when empty line """
