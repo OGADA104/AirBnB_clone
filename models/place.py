@@ -8,6 +8,7 @@ class Place(BaseModel):
     """usage place(args)"""
 
     def __init__(self, *args, **kwargs):
+        """initialise place from base model"""
         super().__init__(*args, **kwargs)
         self.city_id = ""
         self.user_id = ""

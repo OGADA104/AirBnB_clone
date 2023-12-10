@@ -19,8 +19,3 @@ class User(BaseModel):
             self.__class__.__name__,
             self.id,
             str(self.__dict__))
-
-
-if __name__ == "__main__":
-    my_user = User()
-    print(my_user)

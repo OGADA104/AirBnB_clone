@@ -101,6 +101,11 @@ class HBNBCommand(cmd.Cmd):
             for obj in objects.items():
                 print(obj)
 
+    def help_all(self):
+        """help to all method"""
+        print("print all instances")
+        print("\t all optional<Class>")
+
     def help_destroy(self):
         """help module to destroy"""
         print("deletes instance of a class")
@@ -116,9 +121,13 @@ class HBNBCommand(cmd.Cmd):
 
     def help_quit(self):
         """help to quit method"""
-        print("quit command to exit the program")
+        print("Quit command to exit the program")
 
     do_EOF = do_quit
+
+    def non_interactive_mode(self, command):
+        """Execute a single command in non-interactive mode"""
+        self.onecmd(command)
 
 
 if __name__ == '__main__':
