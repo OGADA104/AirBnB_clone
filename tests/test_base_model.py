@@ -53,11 +53,13 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(datetime.strptime(obj_dict['updated_at'],
             '%Y-%m-%dT%H:%M:%S.%f'),
             datetime)
+
     def test_str(self):
         """test __str__"""
         string_representation = str(self.base_model)
         self.assertIn('BaseModel', string_representation)
         self.assertIn(str(self.base_model.id), string_representation)
+
 
 if __name__ == '__main__':
     unittest.main()
