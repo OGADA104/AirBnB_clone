@@ -1,21 +1,17 @@
 #!/usr/bin/python3
-"""my review module"""
-
+"""This module defines the review class"""
 from models.base_model import BaseModel
 
 
 class Review(BaseModel):
-    """review class """
-    def __init__(self, *args, **kwargs):
-        """initialise base model"""
-        super().__init__(*args, **kwargs)
-        self.place_id = ""
-        self.user_id = ""
-        self.text = ""
-
-    def __str__(self):
-        """ Return a string representation of the object """
-        return "[{}] ({}) {}".format(
-            self.__class__.__name__,
-            self.id,
-            str(self.__dict__))
+    """
+    Public class attr
+        place_id (str) default=empty string: it will
+            be the place.id
+        user_id (str) default=empty string: it will
+            be the user.id
+        text (str) default=empty string:
+    """
+    place_id = ""
+    user_id = ""text = ""
+    text = ""

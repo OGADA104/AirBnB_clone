@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-"""amenity module """
+"""This module holds the amenity class"""
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """usage Amenity(str)"""
-
-    def __init__(self, *args, **kwargs):
-        """initiatilse from base model"""
-        super().__init__(*args, **kwargs)
-        self.name = ""
+    """Defines the  Amenity class
+    Public class attr
+    name (str)
+    """
+    name = ""

@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-"""city module"""
+"""This module holds class City"""
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """usage city <string>"""
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.state_id = str()
-        self.name = str()
+    """class City that inherits from BaseModel
+    Public class attr
+        state_id (str):
+        name (str)
+    """
+    state_id = str()
+    name = str()
