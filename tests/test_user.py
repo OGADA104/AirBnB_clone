@@ -33,8 +33,8 @@ class TestUser(unittest.TestCase):
         self.assertIn(str(self.user.id), string_representation)
 
     def test_created_at_and_updated_at(self):
-        self.assertIsInstance(self.user.created_at, str)
-        self.assertIsInstance(self.user.updated_at, str)
+        self.assertIsInstance(self.user.created_at, datetime)
+        self.assertIsInstance(self.user.updated_at, datetime)
 
     def test_to_dict_method(self):
         self.user.email = "test@example.com"

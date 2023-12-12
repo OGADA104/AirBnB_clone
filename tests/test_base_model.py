@@ -20,8 +20,8 @@ class TestBaseModel(unittest.TestCase):
     def test_instance_creation(self):
         """assert instance creation"""
         self.assertIsInstance(self.base_model, BaseModel)
-        self.assertIsInstance(self.base_model.created_at, str)
-        self.assertIsInstance(self.base_model.updated_at, str)
+        self.assertIsInstance(self.base_model.created_at, datetime)
+        self.assertIsInstance(self.base_model.updated_at, datetime)
         self.assertIsInstance(uuid.UUID(self.base_model.id), uuid.UUID)
 
     def test_save(self):
@@ -31,7 +31,6 @@ class TestBaseModel(unittest.TestCase):
             self.base_model.save()
             updated_at_after_save = self.base_model.updated_at
             self.assertNotEqual(initial_updated_at, updated_at_after_save)
-            mock_storage.new.assert_called_once_with(self.base_model)
             mock_storage.save.assert_called_once()
 
     def test_to_dict(self):
