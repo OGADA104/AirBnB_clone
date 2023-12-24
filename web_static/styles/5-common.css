@@ -12,7 +12,7 @@ div.container {
 }
 
 section.filters {
-    color: white;
+    color: rgb(0, 0, 0);
     height: 70px;
     width: 100%;
     border: 1px solid #DDDDDD;
@@ -30,9 +30,28 @@ button {
     width: 20%;
     border-radius: 4px;
     margin-right: 30px;
-    
 }
 
 button:hover {
     opacity: 0.9;
+}
+
+div.locations,
+.amenities{
+text-align: center;
+height: 100%;
+width: 25%;
+border-right: #DDDDDD 1px;
+flex:1;
+}
+.amenities {
+    border-left: #DDDDDD solid 1px;
+}
+h3 {
+    font-weight: 600;   
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 14px;
 }
