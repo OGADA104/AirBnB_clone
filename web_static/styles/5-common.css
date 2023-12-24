@@ -38,7 +38,8 @@ button:hover {
 
 div.locations,
 .amenities{
-text-align: center;
+text-align: left;
+text-indent: 30px;
 height: 100%;
 width: 25%;
 border-right: #DDDDDD 1px;
@@ -48,10 +49,12 @@ flex:1;
     border-left: #DDDDDD solid 1px;
 }
 h3 {
+    margin: 0%;
     font-weight: 600;   
 }
 
 h4 {
+    margin: 0%;
     font-weight: 400;
     font-size: 14px;
 }
