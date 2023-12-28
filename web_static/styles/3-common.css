@@ -1,18 +1,10 @@
-html, body {
-    height: 100%;
-}
+/* Body (Common) style */
 
-/* Common style */
 body{
     margin: 0;
     padding: 0;
+    height: 100%;
     font-size: 14px;
     color: #484848;
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-/* container style */
-.container{
-    max-width: 1000px;
-    margin: 30px auto;
 }
